@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Javascript tutorials: Data Conversion</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <img class="tutorial-logo" src="assets/images/javascript-logo.png" alt="" class="logo">
+  <div class="wrapper">
+    <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+    <h3>chapter - 7</h3>
+    <h1>Javascript tutorials: <span>Data conversion</span></h1>
+    <h4>Implicit type conversion</h4>
+    <h5>Converting to String</h5>
+    <ul>
+      <li>"100" + 24; // Converts 24 to string</li>
+      <li>'100' + false; // Converts false boolean value to strin</li>
+      <li>"100" + null; // Converts null keyword to string</li>
+      <li>"" + [10,20]; // Converts null keyword to string</li>
+    </ul>
+    <h5>Converting to Number</h5>
+    <ul>
+      <li>'100' / 50; // Converts '100' to 100</li>
+      <li>'100' - '50'; // Converts '100' and '50' to 100 and 50</li>
+      <li>'100' * true; // Converts true to 1</li>
+      <li>'100' - false; // Converts false to 0</li>
+      <li>'tp' / 50 // converts 'tp' to NaN</li>
+      <li>[10] * true; // Converts Array of single digits/string to 1</li>
+      <li>[10,20] * true; // Converts Array of multiple digits to NaN</li>
+    </ul>
+    <h5>Converting to Boolean</h5>
+    <ul>
+      <li>num = !!0; // !0 = true, !!0 = false</li>
+      <li>num = !!1; // !1 = false, !!1 = true</li>
+      <li>str = !!""; // !"" = true, !!"" = false</li>
+      <li>str = !!"Hello"; // !"Hello" = false, !!"Hello" = true
+    </ul>
+    <h5>Null to Number</h5>
+    <ul>
+      <li>let num = 100 + null; // Converts null to 0</li>
+      <li>num = 100 * null; // Converts null to 0</li>
+    </ul>
+    <h5>Undefined with Number and Boolean</h5>
+    <ul>
+      <li>let num = 100 + undefined; // Prints NaN</li>
+      <li>nnum = false * undefined; // Prints NaN</li>
+    </ul>
+    <h4>Explicit type conversion</h4>
+    <h5>Converting to String</h5>
+    <ul>
+      <li>String(100); // number to string</li>
+      <li>String(null); // null to string</li>
+      <li>String(true); // boolean to string</li>
+      <li>const num = 100;
+      <li>num.toString() // converts 100 to '100'</li>
+    </ul>
+    <h5>Converting to Number</h5>
+    <ul>
+      <li>Number('100'); // Converts '100' to 100</li>
+      <li>Number(false); // Converts false to 0</li>
+      <li>Number(null); // Converts null to 0</li>
+      <li>num = +"200"; // Using the unary operator</li>
+      <li>parseFloat()</li>
+      <li>parseInt()</li>
+      <li>+</li>
+    </ul>
+    <h5>Converting to Boolean</h5>
+    <ul>
+      <li>Boolean(100); // Converts number to boolean (true)</li>
+      <li>Boolean(0); // 0 is falsy value (false)</li>
+      <li>Boolean(""); // Empty string is falsy value (false)</li>
+      <li>Boolean("Hi"); // Converts string to boolean (true)</li>
+      <li>Boolean(null); // null is falsy value (false)</li>
+    </ul>
+    <h5>Converting Date to EPOC time</h5>
+    <ul>
+      <li>Number(new Date()); // Converts date to number</li>
+      <li>new Date().getTime(); // Get date in number, same as above</li>
+    </ul>
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
