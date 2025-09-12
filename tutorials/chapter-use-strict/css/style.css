@@ -32,6 +32,9 @@ h1 {
   color: #ffcb00;
   font-size: 32px;
 }
+h1 span {
+  color: #fff;
+}
 
 h3 {
   font-size: 18px;
@@ -43,12 +46,29 @@ h3 {
   margin: 10px 0;
 }
 
+h4 {
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 0;
+  margin: 10px 0;
+  font-weight: 500;
+  border-bottom: dashed 1px #444444;
+}
+
+h5 {
+  font-size: 20px;
+  color: #a3a3a3;
+  padding: 10px 0;
+  border-radius: 8px;
+  margin: 0;
+}
+
 ul {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 0;
 }
 ul li {
   padding: 10px 5px;
-  text-transform: lowercase;
   color: #fff;
   font-size: 18px;
 }
@@ -56,4 +76,12 @@ ul li p {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #a8a8a8;
   font-size: 14px;
+}
+
+.tutorial-logo {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 80px;
+  display: block;
 }/*# sourceMappingURL=style.css.map */

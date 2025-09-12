@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Javascript tutorials: Strict mode</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+
+<body>
+  <img class="tutorial-logo" src="assets/images/javascript-logo.png" alt="" class="logo">
+  <div class="wrapper">
+    <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+    <h3>chapter - 8</h3>
+    <h1>Javascript tutorials: <span>Strict mode</span></h1>
+    <h4>Why should we use strict mode?</h4>
+    <p>Strict mode's main advantage is that it helps you write cleaner and more reliable code by catching common errors.
+      Its primary disadvantage is the potential to break older JavaScript code that relies on non-strict behaviors.</p>
+    <h5>Advantages of Strict Mode 👍</h5>
+    <ul>
+      <li>Catches Common Errors: It changes silent errors into thrown errors. This is its biggest benefit.</li>
+      <li>Promotes Cleaner Code: It disallows some of the language's more confusing or error-prone features.</li>
+      <li>Improves Security: It disables access to arguments.caller and arguments.callee, which can be security
+        vulnerabilities as they allow inspection of the call stack.</li>
+      <li>Future-Proofs Your Code: Strict mode reserves certain identifiers like implements, interface, let, package,
+        private, protected, public, static, and yield. This prevents your code from breaking when future versions of
+        JavaScript introduce these keywords.</li>
+    </ul>
+    <h5>Disadvantages of Strict Mode 👎</h5>
+    <ul>
+      <li>Compatibility Issues with Legacy Code: This is the most significant drawback. An older codebase might
+        intentionally or unintentionally rely on non-strict behaviors (like creating global variables). Applying strict
+        mode globally to such a project will likely cause it to break. You would need to refactor the code to make it
+        strict-compliant.</li>
+      <li>Potential for Tooling/Concatenation Conflicts: If you concatenate a script file written in strict mode with
+        one that is not, the entire combined script may be forced into strict mode, potentially breaking the non-strict
+        code. Modern build tools and module systems (like Webpack or ES Modules) largely solve this by handling scope
+        correctly, but it can be an issue in older setups.</li>
+      <li>Slight Learning Curve: For developers accustomed to JavaScript's "loose" nature, strict mode can feel
+        restrictive at first. It forces you to unlearn some old habits and adopt more robust coding practices, which can
+        cause initial friction.</li>
+    </ul>
+    <h5>1. Prevents Accidental Global Variables</h5>
+    <p>Non-Strict Mode:</p>
+    <pre><code class="language-javascript">
+function createLeak() {
+  leakedVariable = "I am a global variable!"; // Silently creates a global variable `leakedVariable`
+}
+createLeak();
+console.log(window.leakedVariable); // "I am a global variable!"
+    </code></pre>
+    <p>Strict Mode:</p>
+    <pre><code class="language-javascript">
+"use strict";
+function noLeak() {
+  // leakedVariable = "This will fail"; // Throws a ReferenceError: leakedVariable is not defined
+}
+noLeak();
+    </code></pre>
+    <h5>2. Eliminates "this" Coercion</h5>
+    <p>Non-Strict Mode:</p>
+    <pre><code class="language-javascript">
+function showThis() {
+  console.log(this);
+}
+showThis(); // In a browser, this logs the `window` object.
+</code>
+</pre>
+    <p>Strict Mode:</p>
+    <pre><code class="language-javascript">
+"use strict";
+function noLeak() {
+  // leakedVariable = "This will fail"; // Throws a ReferenceError: leakedVariable is not defined
+}
+noLeak();
+    </code></pre>
+    <h5>3. Disallows Duplicate Parameter Names</h5>
+    <p>Non-Strict Mode:</p>
+    <pre><code class="language-javascript">
+function duplicateParams(a, a, b) {
+  console.log(a); // Logs 2, the value of the last 'a'
+}
+duplicateParams(1, 2, 3);
+</code>
+</pre>
+    <p>Strict Mode:</p>
+    <pre><code class="language-javascript">
+"use strict";
+function duplicateParamsStrict(a, a, b) { // Throws a SyntaxError: Duplicate parameter name not allowed in this context
+  console.log(a);
+}
+duplicateParamsStrict(1, 2, 3);
+    </code></pre>
+    <h5>4. Makes eval() Safer</h5>
+    <p>Non-Strict Mode:</p>
+    <pre><code class="language-javascript">
+eval("var x = 10;");
+console.log(x); // 10
+</code>
+</pre>
+    <p>Strict Mode:</p>
+    <pre><code class="language-javascript">
+"use strict";
+eval("var y = 20;");
+// console.log(y); // Throws a ReferenceError: y is not defined
+    </code></pre>
+    <h5>5. Forbids Deleting Undeletable Properties</h5>
+    <p>Non-Strict Mode:</p>
+    <pre><code class="language-javascript">
+delete Object.prototype; // Fails silently, returns false
+</code>
+</pre>
+    <p>Strict Mode:</p>
+    <pre><code class="language-javascript">
+"use strict";
+delete Object.prototype; // Throws a TypeError: Cannot delete property 'prototype' of function Object()
+    </code></pre>
+
+  </div>
+  <script>hljs.highlightAll();</script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
