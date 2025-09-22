@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Javascript tutorials: Bi-cinditional/Ternary/Nullish operators
+    </title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <h3>chapter - 12</h3>
+      <h1>
+        Javascript tutorials:<br />
+        <span>Bi-cinditional/Ternary/Nullish operators</span>
+      </h1>
+      <h4>What is Bi-cinditional/Ternary?</h4>
+      <p>
+        The ternary operator evaluates the condition. If the condition is
+        truthy, the expressionIfTrue is executed, and its result becomes the
+        value of the entire ternary operation. If the condition is falsy, the
+        expressionIfFalse is executed, and its result becomes the value of the
+        entire operation.
+      </p>
+      <pre><code language="javascript">let variable = condition ? expression : expression</code></pre>
+      <h4>What is Nullish operator (??)</h4>
+      <p>
+        The ?? operator returns its right-hand side operand only when its
+        left-hand side operand is either null or undefined. In all other cases,
+        it returns the left-hand side operand.
+      </p>
+      <h5>Key difference between the Nullish (??) Logical OR operator (||)</h5>
+      <p>
+        Unlike the || operator, which returns the right-hand side operand for
+        any "falsy" value (including 0, false, NaN, and empty strings ""), the
+        ?? operator specifically targets null and undefined. This means that
+        values like 0 or empty strings are considered valid and will be returned
+        by the ?? operator, whereas the || operator would treat them as falsy
+        and return the default value.
+      </p>
+      <pre><code language="javascript">let firstName = null;
+let username = firstName ?? "Guest"; // username will be "Guest"
+
+let age = 0;
+let userAge = age ?? 18; // userAge will be 0 (because 0 is not null or undefined)
+
+let city = undefined;
+let userCity = city ?? "Unknown"; // userCity will be "Unknown"</code></pre>
+      <h5>Wht Nullish operator is valuable?</h5>
+      <p>
+        The Nullish Coalescing Operator is a useful tool for setting default
+        values when you specifically want to differentiate between truly missing
+        values (null or undefined) and other potentially "falsy" but still
+        meaningful values.
+      </p>
+    </div>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
