@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript tutorials: Exponential or power operator</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <h3>chapter - 14</h3>
+      <h1>
+        Javascript tutorials:<br />
+        <span>Exponential or power operator</span>
+      </h1>
+      <p>
+        The exponentiation (**) operator returns the result of raising the first
+        operand to the power of the second operand. It is equivalent to
+        Math.pow(), except it also accepts BigInts as operands.
+      </p>
+      <pre><code language="javascript">// 1. JavaScript Demo: Exponentiation (**) operator
+console.log(3 ** 4); // Expected output: 81
+console.log(10 ** -2); // Expected output: 0.01
+console.log(2 ** (3 ** 2)); // Expected output: 512
+console.log((2 ** 3) ** 2); // Expected output: 64
+
+// 2. Exponentiation using numbers
+console.log(2 ** 3); // Expected output: 8
+console.log(3 ** 2); // Expected output: 9
+console.log(3 ** 2.5); // Expected output: 15.588457268119896
+console.log(10 ** -1); // Expected output: 0.1
+console.log(2 ** 1024); // Expected output: Infinity
+console.log(NaN ** 2); // Expected output: NaN
+console.log(NaN ** 0); // Expected output: 1
+console.log(1 ** Infinity); // Expected output: NaN
+
+// 3. Other non-BigInt values are coerced to numbers:
+console.log(2 ** "3"); // Expected output: 8
+console.log(2 ** "hello"); // Expected output: NaN
+
+// 4. Exponentiation using BigInts
+console.log(2n ** 3n); // Expected output: 8n
+console.log(2n ** 1024n); // Expected output: A very large number, but not Infinity
+console.log(2n ** 2); // TypeError: Cannot mix BigInt and other types, use explicit conversions
+console.log(2 ** 2n); // TypeError: Cannot mix BigInt and other types, use explicit conversions
+console.log(2n ** BigInt(2)); // Expected output: 4n
+console.log(Number(2n) ** 2); // Expected output: 4
+
+// Associativity
+console.log(2 ** 3 ** 2); // Expected output: 512
+console.log(2 ** (3 ** 2)); // Expected output: 512
+console.log((2 ** 3) ** 2); // Expected output: 64
+console.log(-(2 ** 2)); // Expected output: -4
+console.log((-2) ** 2); // Expected output: 4
+
+
+// JavaScript Demo: Exponentiation assignment (**=) operator
+let a = 3;
+console.log((a **= 2)); // Expected output: 9
+console.log((a **= 0)); // Expected output: 1
+console.log((a **= 'hello')); // Expected output: NaN
+</code></pre>
+    </div>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
