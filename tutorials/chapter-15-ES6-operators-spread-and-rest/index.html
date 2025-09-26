@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript tutorials: Spread and Rest operator (ES6)</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+      .summary-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: sans-serif;
+      }
+      .summary-table th,
+      .summary-table td {
+        border: 1px solid #444444;
+        padding: 12px;
+        text-align: left;
+      }
+      .summary-table th {
+        background-color: #2f2f2f;
+        font-weight: bold;
+      }
+      .summary-table code {
+        background-color: #2f2f2f;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-family: monospace;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <div class="chapter">chapter - 15</div>
+      <h1>
+        Javascript tutorials:<br />
+        <span>Spread and Rest operator (ES6)</span>
+      </h1>
+      <h3>Spread operator</h3>
+      <h4>The Spread Operator (...) - Unpacking Elements</h4>
+      <p>
+        The spread operator "unpacks" or "expands" an iterable (like an array,
+        string, or object) into its individual elements. Think of it as taking a
+        packed suitcase and laying all its contents out on the bed. You use it
+        where you need individual elements, such as in array literals, object
+        literals, or function calls.
+      </p>
+      <h5>Example: Merging arrays</h5>
+      <pre><code language="javascript">const frontEnd = ['React', 'Vue', 'Svelte'];
+const backEnd = ['Node.js', 'Express', 'NestJS'];
+
+// Combining two arrays into a new one
+const fullStack = [...frontEnd, ...backEnd];
+console.log(fullStack); 
+// Output: ['React', 'Vue', 'Svelte', 'Node.js', 'Express', 'NestJS']
+
+// Adding an element to the beginning of an array immutably
+const withAngular = ['Angular', ...frontEnd];
+console.log(withAngular); 
+// Output: ['Angular', 'React', 'Vue', 'Svelte']</code></pre>
+      <h4>Shallow copy Behavior</h4>
+      <p>
+        Before ES6, copying an array required methods like slice(). The spread
+        operator makes this much more intuitive. This is crucial for avoiding
+        accidental modifications to the original data.
+      </p>
+      <h5>Example with Array</h5>
+      <pre><code language="javascript">// Before ES6
+const original = ['a', 'b', 'c'];
+const sliceCpy = original.slice(0,original.length);
+console.log(original); // Output: ['a', 'b', 'c'] (The original is safe!)
+console.log(sliceCpy); // Output: ['a', 'b', 'c', 'd']
+
+// After ES6
+const copy = [...original];
+copy.push('d'); // Modify the copy
+console.log(original); // Output: ['a', 'b', 'c'] (The original is safe!)
+console.log(copy);     // Output: ['a', 'b', 'c', 'd']</code></pre>
+      <h5>With Object</h5>
+      <pre><code langulage="javascript">const userProfile = {
+  name: 'Alex',
+  email: 'alex@example.com'
+};
+
+const userSettings = {
+  theme: 'dark',
+  email: 'alex.doe@work.com' // This will overwrite the original email
+};
+
+const completeUser = { ...userProfile, ...userSettings, lastLogin: '2025-09-24' };
+
+console.log(completeUser);
+/*
+Output:
+{
+  name: 'Alex',
+  email: 'alex.doe@work.com', // The later value for 'email' was used
+  theme: 'dark',
+  lastLogin: '2025-09-24'
+}
+*/</code></pre>
+      <h5>Passing array as srgument in function</h5>
+      <pre><code langulage="javascript">const numbers = [12, 88, 34, 5];
+
+// Instead of Math.max(12, 88, 34, 5)
+const maxNumber = Math.max(...numbers);
+
+console.log(maxNumber); // Output: 88</code></pre>
+      <h3>The Rest Parameter (...) - Gathering Elements</h3>
+      <h5>You can only use it at the end of a function's parameter list.</h5>
+      <p>
+        The rest parameter does the exact opposite. It "collects" an indefinite
+        number of arguments and bundles them into a single array. Think of it as
+        gathering scattered items from a table and putting them all into one
+        bag.
+      </p>
+      <h5>Example: Function calling multiple numbers as an argument</h5>
+      <pre><code language="javascript">// A function that calculates the sum of all numbers passed to it.
+function sum(...numbers) {
+  // 'numbers' is now a real array.
+  return numbers.reduce((total, current) => total + current, 0);
+}
+
+console.log(sum(1, 2, 3));              // Output: 6
+console.log(sum(10, 20, 30, 40, 50)); // Output: 150
+console.log(sum());                     // Output: 0</code></pre>
+      <h5>Destructuring an Array</h5>
+      <pre><code language="javascript">const leaderboard = ['Alice', 'Bob', 'Charlie', 'David', 'Eve'];
+
+// Get the winner, runner-up, and everyone else.
+const [winner, runnerUp, ...everyoneElse] = leaderboard;
+
+console.log(winner);        // Output: 'Alice'
+console.log(runnerUp);      // Output: 'Bob'
+console.log(everyoneElse);  // Output: ['Charlie', 'David', 'Eve']</code></pre>
+      <h5>Creating More Flexible and Readable Functions</h5>
+      <pre><code language="javascript">// A logging function that takes a required category and then any number of messages.
+function logMessage(category, ...messages) {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] [${category.toUpperCase()}]`);
+  
+  messages.forEach(message => {
+    console.log(`  - ${message}`);
+  });
+}
+
+logMessage('INFO', 'User logged in', 'Accessed dashboard page');
+// Output:
+// [2025-09-25T....] [INFO]
+//   - User logged in
+//   - Accessed dashboard page
+
+logMessage('ERROR', 'Failed to connect to database');
+// Output:
+// [2025-09-25T....] [ERROR]
+//   - Failed to connect to database</code></pre>
+      <h3>Spread vs. Rest</h3>
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Spread Operator (<code>...</code>)</th>
+            <th>Rest Parameter (<code>...</code>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Main Purpose</strong></td>
+            <td>
+              <strong>Expands</strong> or <strong>unpacks</strong> elements from
+              an iterable.
+            </td>
+            <td>
+              <strong>Collects</strong> or <strong>gathers</strong> elements
+              into a single array.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Where It's Used</strong></td>
+            <td>
+              In places where individual elements are expected (e.g.,
+              array/object literals, function calls).
+            </td>
+            <td>
+              In places where variables are declared (e.g., function parameter
+              lists, destructuring assignments).
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Analogy</strong></td>
+            <td>Unpacking a suitcase. 🧳</td>
+            <td>Gathering items into a bag. 📥</td>
+          </tr>
+          <tr>
+            <td><strong>Result</strong></td>
+            <td>A list of individual elements.</td>
+            <td>A single, new array.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
