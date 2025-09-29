@@ -1,53 +1,55 @@
-// const frontEnd = ["React", "Vue", "Svelte"];
-// console.log("Frontend:", frontEnd);
+//Uncomment the code
+const frontEnd = ["React", "Vue", "Svelte"];
+console.log("Frontend:", frontEnd);
 
-// const backEnd = ["Node.js", "Express", "NestJS"];
-// console.log("backend: ", backEnd);
+const backEnd = ["Node.js", "Express", "NestJS"];
+console.log("backend: ", backEnd);
 
-// const language = [...frontEnd, ...backEnd];
-// language.push("Angular");
-// console.log("Language: ", language);
-// console.log("Frontend:", frontEnd);
-// console.log("backend: ", backEnd);
+const language = [...frontEnd, ...backEnd];
+language.push("Angular");
+console.log("Language: ", language);
+console.log("Frontend:", frontEnd);
+console.log("backend: ", backEnd);
 
-//With Array
+//With Array - uncomment the code
 // Before ES6
-// const original = ["a", "b", "c"];
-// const sliceCpy = original.slice(0, original.length);
-// sliceCpy.push("d");
-// console.log(original); // Output: ['a', 'b', 'c'] (The original is safe!)
-// console.log(sliceCpy); // Output: ['a', 'b', 'c', 'd']
+const original = ["a", "b", "c"];
+const sliceCpy = original.slice(0, original.length);
+sliceCpy.push("d");
+console.log(original); // Output: ['a', 'b', 'c'] (The original is safe!)
+console.log(sliceCpy); // Output: ['a', 'b', 'c', 'd']
 
 // // After ES6
-// const copy = [...original];
-// copy.push("d"); // Modify the copy
-// console.log(original); // Output: ['a', 'b', 'c'] (The original is safe!)
-// console.log(copy); // Output: ['a', 'b', 'c', 'd']
+const copy = [...original];
+copy.push("d"); // Modify the copy
+console.log(original); // Output: ['a', 'b', 'c'] (The original is safe!)
+console.log(copy); // Output: ['a', 'b', 'c', 'd']
 
-//With Object
-// const userProfile = {
-//   name: "Alex",
-//   email: "alex@example.com",
-//   address: {
-//     country: "USA",
-//   },
-// };
+//With Object - uncomment the code
+const userProfile = {
+  name: "Alex",
+  email: "alex@example.com",
+  address: {
+    country: "USA",
+  },
+};
 
-// const userSettings = {
-//   theme: "dark",
-//   email: "alex.doe@work.com", // This will overwrite the original email
-// };
+const userSettings = {
+  theme: "dark",
+  email: "alex.doe@work.com", // This will overwrite the original email
+};
 
-// const completeUser = {
-//   ...userProfile,
-//   ...userSettings,
-//   lastLogin: "2025-09-24",
-// };
+const completeUser = {
+  ...userProfile,
+  ...userSettings,
+  lastLogin: "2025-09-24",
+};
 
-// completeUser.name = "Gautam";
-// completeUser.address.country = "India";
-// console.log("Complete User: ", completeUser);
-// console.log("userProfile: ", userProfile);
+completeUser.name = "Gautam";
+completeUser.address.country = "India";
+console.log("Complete User: ", completeUser);
+console.log("userProfile: ", userProfile);
+
 /*
 Output:
 {
@@ -58,25 +60,25 @@ Output:
 }
 */
 
-// const numbers = [12, 88, 34, 5];
+const numbers = [12, 88, 34, 5];
 
-// // Instead of Math.max(12, 88, 34, 5)
-// const maxNumber = Math.max(...numbers);
-// // const maxNumber = Math.max(12, 88, 34, 5);
+// Instead of Math.max(12, 88, 34, 5)
+const maxNumber = Math.max(...numbers);
+// const maxNumber = Math.max(12, 88, 34, 5);
 
-// console.log(maxNumber); // Output: 88
+console.log(maxNumber); // Output: 88
 
 // Rest operator
 // A function that calculates the sum of all numbers passed to it.
-// function sum(...numbers) {
-//   console.log(numbers);
-//   // 'numbers' is now a real array.
-//   return numbers.reduce((total, current) => total + current, 0);
-// }
+function sum(...numbers) {
+  console.log(numbers);
+  // 'numbers' is now a real array.
+  return numbers.reduce((total, current) => total + current, 0);
+}
 
-// console.log(sum(1, 2, 3)); // Output: 6
-// console.log(sum(10, 20, 30, 40, 50)); // Output: 150
-// console.log(sum());
+console.log(sum(1, 2, 3)); // Output: 6
+console.log(sum(10, 20, 30, 40, 50)); // Output: 150
+console.log(sum());
 
 const leaderboard = ["Alice", "Bob", "Charlie", "David", "Eve"];
 
@@ -89,11 +91,11 @@ const [winner, runnerUp, ...everyoneElse] = [
   "Eve",
 ];
 
-// console.log(["Alice", "Bob", ["Charlie", "David", "Eve"]]);
+console.log(["Alice", "Bob", ["Charlie", "David", "Eve"]]);
 
-// console.log(winner); // Output: 'Alice'
-// console.log(runnerUp); // Output: 'Bob'
-// console.log(everyoneElse); // Output: ['Charlie', 'David', 'Eve']
+console.log(winner); // Output: 'Alice'
+console.log(runnerUp); // Output: 'Bob'
+console.log(everyoneElse); // Output: ['Charlie', 'David', 'Eve']
 
 // A logging function that takes a required category and then any number of messages.
 function logMessage(category, ...messages) {
