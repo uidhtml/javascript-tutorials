@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript tutorials: HTML DOM</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div id="tutorial-page" class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <div class="chapter">chapter - 18</div>
+      <h1>
+        Javascript tutorials:<br />
+        <span>HTML DOM</span>
+      </h1>
+      <h3>What is DOM?</h3>
+      <p>
+        The HTML DOM, or Document Object Model, is a programming interface for
+        HTML documents. It represents the structure of an HTML page as a tree of
+        objects, where each object corresponds to an element, attribute, or text
+        within the HTML.
+      </p>
+      <h5>Why it is used?</h5>
+      <ul>
+        <li>Change content</li>
+        <li>Modify structure</li>
+        <li>Alter style</li>
+        <li>Handle events</li>
+      </ul>
+      <h3>Form Element</h3>
+      <form>
+        <div class="input-wrapper">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            value="Gautam"
+            placeholder="Eneter your first name"
+          />
+        </div>
+        <div class="input-wrapper">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Eneter your last name"
+          />
+        </div>
+        <div class="button-wrapper">
+          <button type="button">Save</button>
+        </div>
+      </form>
+      <h3>Selecting element for demo</h3>
+      <div id="my-div">This is an element with ID</div>
+
+      <h3>Selecting element by className for demo</h3>
+      <ul class="city-list">
+        <li class="city">New Delhi</li>
+        <li class="city">Patna</li>
+        <li class="city">Mumbai</li>
+        <li class="city">Chennai</li>
+      </ul>
+      <div class="city">Dhanbad</div>
+    </div>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
