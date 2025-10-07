@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript tutorials: for() and forEach() with an Array</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div id="tutorial-page" class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <div class="chapter">chapter - 21</div>
+      <h1>
+        Javascript tutorials:<br />
+        <span>for() and forEach() with an Array</span>
+      </h1>
+      <h3>What is a forEach loop?</h3>
+      <p>
+        In JavaScript, forEach() is a built-in method available on Array and
+        other iterable objects like Set and Map. It is used to iterate over the
+        elements of the collection and execute a provided callback function once
+        for each element.
+      </p>
+      <h5>Key characteristics of forEach():</h5>
+      <ul>
+        <li>Iteration</li>
+        <li>Callback Function</li>
+        <li>
+          Callback Arguments:
+          <ul>
+            <li>lcurrentValue: The current element being processed.</li>
+            <li>index (optional): The index of the current element.</li>
+            <li>(optional): The array forEach() was called upon.</li>
+          </ul>
+        </li>
+        <li>No Return Value</li>
+        <li>
+          Immutability (of the original array): It does not modify the original
+          array unless the callback function explicitly performs modifications.
+        </li>
+        <li>
+          No Early Exit: Unlike traditional for loops, you cannot use break or
+          continue to exit or skip iterations within a forEach() loop.
+        </li>
+      </ul>
+      <div id="persons-list">
+        <ul id="persons"></ul>
+      </div>
+    </div>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
