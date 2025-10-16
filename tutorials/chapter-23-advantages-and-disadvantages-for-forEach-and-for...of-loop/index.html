@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Javascript tutorials: Advantages and disadvantages of for(), forEach() and
+      for...of() loop
+    </title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div id="tutorial-page" class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <div class="chapter">chapter - 23</div>
+      <h1>
+        Javascript tutorials:<br />
+        <span
+          >Advantages and disadvantages of for(), forEach() and for...of()
+          loop</span
+        >
+      </h1>
+      <h3>for() loop</h3>
+      <h5>Advantages</h5>
+      <ul>
+        <li>Maximum Flexibility
+          <p>This is the most versatile loop. You can iterate forwards, backwards, skip items (i += 2), or iterate over any data structure where you can determine a length and access elements by an index.</p>
+          <pre><code language="javascript">for (let i =0; i < array.length; i+=2) { ... }</code></pre>
+        </li>
+        <li>Full Control
+          <p>complete control over the loop's execution. It fully supports break to exit the loop prematurely and continue to skip the current iteration.</p>
+          <pre><code language="javascript">for (let i =0; i < array.length; i+=2) {
+  if(i == 2) break;
+  if(i == 3) continue;
+}</code></pre>
+        </li>
+        <li>async/await Support
+          <p>It works seamlessly with async/await. You can await a promise inside the loop, and it will pause the entire loop's execution until the promise resolves, which is often the desired behavior.</p>
+          <pre><code language="javascript">async myFunction() {
+  for (let i =0; i < array.length; i+=2) {
+    await setTimeout(() => console.log('Hello UIDHTML'),2000);
+    console.log('I waited till setTimeout executes');
+  }
+}
+myFunction()</code></pre>
+        </li>
+        <li>Performance
+          <p>In many JavaScript engines, it's the fastest option for iterating over arrays, although the performance difference is often negligible in real-world applications.</p>
+        </li>
+      </ul>
+      <h5>Disadvantages</h5>
+      <ul>
+        <li>Verbose Syntax
+          <p>It requires more boilerplate code (setup, condition, and incrementer), which can make the code look cluttered.</p>
+        </li>
+        <li>Error-Prone
+          <p>The manual management of the index (i), the condition (i < arr.length), and the increment (i++) makes it easier to introduce "off-by-one" errors.</p>
+        </li>
+        <li>Lower Readability
+          <p>For simple array iteration, its purpose isn't as immediately clear as with forEach or for...of. The logic is imperative ("how to do it") rather than declarative ("what to do").</p>
+        </li>
+      </ul>
+      <h3>forEach() Array method</h3>
+      <h5>Advantages</h5>
+      <ul>
+        <li>High Readability
+          <p>The syntax is clean, concise, and declarative. It clearly states the intent: "for each element in this array, do something."</p>
+          <pre><code language="javascript">array.forEach((element, index, array) => { ... });</code></pre>
+        </li>
+        <li>Simplicity
+          <p>No need to manually set up or manage an index variable or a loop condition. This reduces the chance of simple errors.</p>
+        </li>
+        <li>Scope Management
+          <p>The callback function creates a new scope for each iteration, which can be useful when dealing with closures.</p>
+          <pre><code language="javascript">array.forEach(
+  // Local scopeed function
+  (element, index, array) => { ... }
+);</code></pre>
+        </li>
+        <li>Direct Access
+          <p>The callback function provides direct access to the element, its index, and the original array itself without any extra work.</p>
+        </li>
+      </ul>
+      <h5>Disadvantages</h5>
+      <ul>
+        <li>No Early Exit
+          <p>This is its biggest drawback. You cannot use break or continue to control the loop. A return statement inside the callback will only exit that specific function call, not the entire forEach loop. The loop will always run to completion for every element.</p>
+        </li>
+        <li>No async/await
+          <p>It does not work with async/await in an intuitive way. If you use await inside a forEach callback, the loop will not pause. It will fire off all the asynchronous operations and continue without waiting for them to finish.</p>
+        </li>
+        <li>Arrays Only
+          <p>It is an Array.prototype method, so it can only be used on arrays and array-like objects (like a NodeList).</p>
+        </li>
+      </ul>
+      <h3>for...of() loop</h3>
+      <h5>Advantages</h5>
+      <ul>
+        <li>Excellent Readability & Simplicity
+          <p>The syntax is arguably the cleanest and most direct for iterating over values. It focuses on what the element is, not how to get it.</p>
+          <pre><code language="javascript">for (const element of iterable) { ... }</code></pre>
+        </li>
+        <li>Works on All Iterables
+          <p>Its major strength is that it works on any object that follows the iterable protocol. This includes <b>Arrays</b>, <b>Strings</b>, <b>Maps</b>, <b>Sets</b>, <b>NodeList</b>, and more.</p>
+        </li>
+        <li>Full Control
+          <p>Just like a standard for loop, it fully supports <b>break</b>, <b>continue</b>, and return to control the flow.</p>
+        </li>
+        <li>async/await Support
+          <p>It works perfectly with async/await. You can await promises inside the loop, and it will pause execution as expected.</p>
+          <pre><code language="javascript">async myFunction() {
+  for (const element of iterable) {
+    await setTimeout(() => console.log('Hello UIDHTML'),2000);
+    console.log('I waited till setTimeout executes');
+  }
+}
+myFunction()</code></pre>
+        </li>
+      </ul>
+      <h5>Disadvantages</h5>
+      <ul>
+        <li>No Built-in Index
+          <p>It directly gives you the value of the element, not its index. If you need the index, you have to add a bit more code, either by tracking it with a separate variable or by using array.entries() (e.g., for (const [index, element] of array.entries())).</p>
+        </li>
+        <li>Doesn't Work on Plain Objects
+          <p>It does not work for iterating over the properties of a plain, non-iterable object. For that, you would need to use a for...in loop or methods like Object.keys().</p>
+        </li>
+      </ul>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
