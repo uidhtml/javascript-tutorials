@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript tutorials: map() and filter() method of array</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./../common/dark.min.css" />
+    <script src="./../common/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div id="tutorial-page" class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <div class="chapter">chapter - 30</div>
+      <h1>
+        Javascript tutorials:<br />
+        <span>map() and filter() method of an array</span>
+      </h1>
+      <h3>.map()</h3>
+      <p>
+        Loop through all elements of ana array and return a new array of same
+        lenegth.
+      </p>
+      <h5>Syntax</h5>
+      <pre><code language="javascript">Array.map((element) => element);</code></pre>
+      <h5>Example</h5>
+      <ul class="state-list"></ul>
+      <h3>.filter()</h3>
+      <p>
+        Loop through all elements of an array and return a new array of some
+        condition, the length of newly created array may be upto same lenght of
+        original array.
+      </p>
+      <h5>Syntax</h5>
+      <pre><code language="javascript">Array.filter((element) => element > 5);</code></pre>
+      <h5>Example</h5>
+      <label for="state-input"
+        ><span class="material-symbols-outlined"> search </span>Search
+        state</label
+      >
+      <input
+        id="state-input"
+        name="state"
+        placeholder="Enter state name"
+        type="text"
+      />
+      <ul class="state-list"></ul>
+      <p class="no-results">No results</p>
+    </div>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
