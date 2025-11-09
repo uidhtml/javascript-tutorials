@@ -1,9 +1,9 @@
 // UIDHTML youtube channel 🙏
 
-// Chapter - 33 - reduce() method
+// Chapter - 34 - reduceRight() method
 /*
 Syntax with normal function
-  array.reduce(
+  array.reduceRight(
     function(accumulator, element, currentIndex, array) {}, 
     initialValue
   );
@@ -12,7 +12,7 @@ Syntax with normal function
   or 
 
 Syntax with arrow function
-  array.reduce(
+  array.reduceRight(
     (accumulator, element, currentIndex, array) => {}, 
     initialValue
   );
@@ -68,11 +68,11 @@ const employeesArray = [
   { id: 2, name: "Rahul", designation: "QA Engineer" },
   { id: 3, name: "Mahesh", designation: "Developer" },
   { id: 4, name: "Raushan", designation: "Frontend Dev" },
-  { id: 5, name: "Hambrum", designation: "Designer" },
-  { id: 6, name: "Harish", designation: "Designer" },
+  { id: 5, name: "Harish", designation: "Designer" },
+  { id: 6, name: "Hambrum", designation: "Designer" },
 ];
 
-const employeeNameArray = employeesArray.reduce((accu, employee) => {
+const employeeNameArray = employeesArray.reduceRight((accu, employee) => {
   return [...accu, employee.name];
 }, []);
 console.log(employeeNameArray);
@@ -80,20 +80,21 @@ console.log(employeeNameArray);
 //Example 3
 //Group data with a key
 const users = [
-  { name: "Harish", city: "Mumbai" },
-  { name: "Mohan", city: "New Delhi" },
-  { name: "Kunal", city: "Mumbai" },
-  { name: "Rajesh", city: "Chennai" },
-  { name: "Rakesh", city: "Mumbai" },
+  { name: "Harish", country: "Mumbai" },
+  { name: "Mohan", country: "New Delhi" },
+  { name: "Kunal", country: "Mumbai" },
+  { name: "Rajesh", country: "Chennai" },
+  { name: "Rakesh", country: "Mumbai" },
+  { name: "Suresh", country: "New Delhi" },
 ];
 
 let obj = {};
-obj["mumbai"] = [{ name: "Harish", city: "Mumbai" }];
+obj["mumbai"] = [{ name: "Harish", country: "Mumbai" }];
 console.log(obj);
 
-const groupOfUsers = users.reduce((accu, user) => {
-  accu[user.city] = accu[user.city] || [];
-  accu[user.city].push(user);
+const groupOfUsers = users.reduceRight((accu, user) => {
+  accu[user.country] = accu[user.country] || [];
+  accu[user.country].push(user);
   return accu;
 }, {});
 
@@ -131,7 +132,7 @@ const fruitsArray = [
   "Pineapple🍍",
 ];
 
-const fruitsQuantity = fruitsArray.reduce((accu, fruit) => {
+const fruitsQuantity = fruitsArray.reduceRight((accu, fruit) => {
   return {
     ...accu,
     [fruit]: (accu[fruit] || 0) + 1,
@@ -151,7 +152,8 @@ const toys = [
   { id: 178, name: "Scooter", price: 80 },
 ];
 
-const indexSignOfToys = toys.reduce((accu, toy) => {
+const indexSignOfToys = toys.reduceRight((accu, toy) => {
+  console.log(toy);
   accu[toy.id] = toy;
   return accu;
 }, {});
