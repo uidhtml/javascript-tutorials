@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Javascript tutorials: Map, Object and Set datatypes of javascript
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./../common/styles/arta.css" />
+    <script src="./../common/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div id="tutorial-page" class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <h1>
+        Javascript tutorials:
+        <span style="color: #007aff; font-weight: bold">Chapter - 36</span
+        ><br />
+        <span>Map, Object and Set datatypes</span>
+      </h1>
+      <p style="margin-top: 10px">Hit like👍, Share ➤ and Subscribe 🔔.</p>
+      <h3>Object</h3>
+      <ul>
+        <li>An Object is the most fundamental data structure in JavaScript.</li>
+        <li>
+          it's a collection of key-value pairs. These "keys" (or "properties")
+          are typically strings (or Symbols), and the "values" can be any data
+          type, including other objects or functions
+        </li>
+      </ul>
+      <h5>Syntax</h5>
+      <pre><code language="javascript">let obj = {
+  name: 'Gautam',
+  address: {
+    street: 320, 
+    country: 'India'
+  }, 
+  age: 32,
+  getNum: (num) => `+91-9999999999 😉 Security matters`
+}</code></pre>
+      <h5>Advantage: Where and when to use Object</h5>
+      <ul>
+        <li>
+          use it when you nee to create record or model or where you have fixed
+          set of properties.
+        </li>
+        <li>
+          Use it when you want keys in "string" and does not care about its
+          order.
+        </li>
+        <li>
+          it's a collection of key-value pairs. These "keys" (or "properties")
+          are typically strings (or Symbols), and the "values" can be any data
+          type, including other objects or functions. Example:
+          <pre><code language="javascript">let mySymbol = Symbol("uniqueId");
+let myObject = {
+  name: "Alice",
+  [mySymbol]: 123
+};
+const user = { 
+  firstName: 'John', 
+  lastName: 'Doe', 
+  age: 30, 
+  Symbol(uniqueId): {
+    country: 'India'
+  } 
+};</code></pre>
+        </li>
+        <li>
+          When you send and receive data from <b>API/HTTP</b> request. Because
+          Object is the native format for JSON, where we use
+          <code>JSON.parse() </code>to convert <code>JSON</code> to an
+          <code>Object</code> JSON compatibility, we use
+          <code>JSON.stringify()</code> and
+          <code>JSON.parse()</code>
+        </li>
+        <li>
+          Engines are highly optimized for property access,
+          <code>myObj.key</code>
+        </li>
+        <li>
+          It is highly flexible when OOPs comes into the picture, (prototypical
+          inheritance)
+        </li>
+      </ul>
+      <h5>Disadvantage</h5>
+      <ul>
+        <li>
+          Keys of string is always stick to <code>string</code> data type, you
+          can not use <code>object or array as key</code> in Object data type,
+          it will convert the key to <code>['object Object']</code>
+        </li>
+        <li>
+          If we talk about prototype chain, there the properties such as
+          <code>toString, contructor,</code> etc. can collide with our key so we
+          should be careful.
+        </li>
+        <li>
+          Looking through keys of object does not maintain its order, but new
+          browser does maintain with non-integer-like string keys.
+        </li>
+        <li>
+          No built in size property, so we use
+          <code>Object.keys(myObj).length</code> 😀, which is inefficieent for
+          large object.
+        </li>
+      </ul>
+      <h3>Map</h3>
+      <ul>
+        <li>More modern and robust key-value collection introduced in ES6</li>
+        <li>
+          It is a true hash map that, unlike an Object, allows keys of any data
+          type and remembers the original insertion order of the keys.
+        </li>
+      </ul>
+      <h5>Syntax</h5>
+      <pre><code language="javascript">const map = new Map([['a', 1]]); </code></pre>
+      <h5>Advantage: Where and when to use Map</h5>
+      <ul>
+        <li>
+          <b>Key Type: </b>Keys can be any value
+          <b>(primitive, object, function)</b>.
+        </li>
+        <li>
+          <b>Order:</b> Keys in a Map are iterated in their insertion order.
+        </li>
+        <li>
+          <b>.size Property:</b> Easily and efficiently find the number of items
+          with <code>myMap.size</code>.
+        </li>
+        <li>
+          <b>Performance:</b> Better performance for frequent
+          <code>set()</code> and <code>delete()</code>
+          operations.
+        </li>
+        <li>
+          <b>Built-in Methods:</b> Provides simple, clear methods like
+          <code>set()</code>, <code>get()</code>, <code>has()</code>,
+          <code>delete()</code>, and <code>clear()</code>.
+        </li>
+        <li>
+          <b>Directly Iterable:</b> You can iterate directly using
+          <code>for...of</code> loops and <code>.forEach()</code>.
+        </li>
+        <li>Does not lead to prototype inheritance key collision.</li>
+      </ul>
+      <h5>Disadvantage</h5>
+      <ul>
+        <li>
+          You can not use <code>JSON.stringify()</code>, mean to to say you can
+          not serialize the data. it will <code>produce empty Object {}</code>.
+          <b>So you need to convert it to Array or Object first</b>.
+        </li>
+        <li>
+          Creating map, syntax is bit more verbose then object literals.
+          <pre><code language="javascript">const obj = { a: 1 };
+const map = new Map([['a', 1]]); 
+//or
+const map = new Map(); map.set('a', 1);</code></pre>
+        </li>
+      </ul>
+      <h3>Set</h3>
+      <ul>
+        <li>A Set is also an ES6 addition</li>
+        <li>It's a collection of unique values</li>
+        <li>It is like an array, but with no duplicate entries allowed</li>
+        <li>It can store any data type (primitives or object references)</li>
+      </ul>
+      <h5>Syntax</h5>
+      <pre><code language="javascript">let mySet = new Set([1, 2, 2, 3, 4, 3])</code></pre>
+      <h5>Advantages: Where and when to use Set</h5>
+      <ul>
+        <li>
+          <b>Removing Duplicates:</b> Automatically handles duplicate entries.
+          <pre><code language="javascript">const uniqueNumbers = [...new Set([1, 2, 2, 3, 4, 3])]; // [1, 2, 3, 4]</code></pre>
+        </li>
+        <li>
+          <b>Checking for Existence:</b> <code>mySet.has(item)</code> is much
+          faster <b>(O(1) average time)</b> than
+          <code>myArray.includes(item)</code> <b>(O(n) time)</b>. It also,
+          <code>add()</code>, and <code>delete()</code> operations (O(1)
+          average)
+        </li>
+        <li>
+          <b>Any Value Type:</b> Can store any value, including objects and
+          primitives.
+        </li>
+        <li><b>.size Property:</b> Easy and efficient to get the count.</li>
+        <li>
+          <b>Iterable:</b> Directly iterable with <code>for...of</code> and
+          <code>forEach()</code>. It also maintains insertion order.
+        </li>
+        <li>
+          <b>Special <code>NaN</code> Handling:</b> Unlike
+          <code>Object</code> keys or <code>Array.indexOf()</code>, a Set
+          correctly treats all <code>NaN</code> values as the same, so it will
+          only store one.
+        </li>
+      </ul>
+      <h5>Disadvantages</h5>
+      <ul>
+        <li>
+          <b>No Direct Access:</b> You cannot access elements by an index (e.g.,
+          mySet[0] is undefined). To get a specific item, you must iterate or
+          convert it to an array.
+        </li>
+        <li>
+          <b>JSON Incompatibility:</b> Like <code>Map</code>, a
+          <code>Set</code> does not serialize to JSON correctly. You must first
+          convert it to an array (e.g., <code>Array.from(mySet)</code>).
+        </li>
+        <li>
+          <b>Object Uniqueness:</b> Uniqueness for objects is based on
+          reference, not value.
+          <pre><code language="javascript">mySet.add({ a: 1 });
+mySet.add({ a: 1 });</code></pre>
+          will result in a <code>Set</code> with two objects, because they are
+          two separate instances in memory.
+        </li>
+      </ul>
+      <h3>Compare Object and Map on performance basis</h3>
+      <p>Let's test two scenarios for both Object and Map:</p>
+      <ul>
+        <li>
+          Adding: How long does it take to add 1 million (1,000,000) key-value
+          pairs?
+        </li>
+        <li>Deleting: How long does it take to delete all 1 million pairs?</li>
+      </ul>
+      <pre><code language="javascript">// The number of items we'll add and remove
+const N = 1000000;
+
+// --- Object Test ---
+console.log('--- Testing Object ---');
+const obj = {};
+
+console.time('Object: Add');
+for (let i = 0; i < N; i++) {
+  obj[i] = 'value' + i; // Using integer-like keys (which are coerced to strings)
+}
+console.timeEnd('Object: Add');
+
+console.time('Object: Delete');
+for (let i = 0; i < N; i++) {
+  delete obj[i];
+}
+console.timeEnd('Object: Delete');
+
+console.log('------------------------');
+console.log(''); // Add a little space
+
+// --- Map Test ---
+console.log('--- Testing Map ---');
+const map = new Map();
+
+console.time('Map: Add');
+for (let i = 0; i < N; i++) {
+  map.set(i, 'value' + i); // Using integer keys
+}
+console.timeEnd('Map: Add');
+
+console.time('Map: Delete');
+for (let i = 0; i < N; i++) {
+  map.delete(i);
+}
+console.timeEnd('Map: Delete');</code></pre>
+      <p>You will notice something unusual, Object is faster the Map</p>
+      <h5>Check below example.</h5>
+      <pre><code language="javascript">const CYCLES = 10;
+const N = 500000;
+
+console.log('--- Testing Complex String Keys ---');
+
+// Object Test (using UUID-like keys)
+console.time('Object Time (Complex Keys)');
+for (let c = 0; c < CYCLES; c++) {
+  const obj = {};
+  for (let i = 0; i < N; i++) {
+    const key = `id-${Math.random()}`; // Random, non-numeric key
+    obj[key] = i;
+  }
+  for (let i = 0; i < N; i++) {
+    // Cannot delete them easily without storing keys, but we can iterate and delete
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            delete obj[key];
+        }
+    }
+    break; // Break after one full delete run
+  }
+}
+console.timeEnd('Object Time (Complex Keys)');
+
+
+// Map Test (using the same complex string keys)
+console.time('Map Time (Complex Keys)');
+for (let c = 0; c < CYCLES; c++) {
+  const map = new Map();
+  const keys = [];
+  for (let i = 0; i < N; i++) {
+    const key = `id-${Math.random()}`;
+    map.set(key, i);
+    keys.push(key);
+  }
+  for (let i = 0; i < N; i++) {
+    map.delete(keys[i]);
+  }
+}
+console.timeEnd('Map Time (Complex Keys)');</code></pre>
+      <h3>Why Object is faster in previous code is another new topic</h3>
+      <p>Will discuss later 😉 If you like👌, Share➤ and Subscribe🔔.</p>
+    </div>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
