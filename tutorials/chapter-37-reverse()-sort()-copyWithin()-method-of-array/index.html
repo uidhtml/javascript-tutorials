@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Javascript tutorials: reverse(), sort() and copyWithin() method of array
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./../common/dark.min.css" />
+    <script src="./../common/highlight.min.js"></script>
+  </head>
+
+  <body>
+    <img
+      class="tutorial-logo"
+      src="assets/images/javascript-logo.png"
+      alt=""
+      class="logo"
+    />
+    <div id="tutorial-page" class="wrapper">
+      <h2>UIDHTML <span>-Gautam Kumar</span></h2>
+      <div class="chapter">chapter - 37</div>
+      <h1>
+        Javascript tutorials:<br />
+        <span>reverse(), sort() and copyWithin() method of an array</span>
+      </h1>
+      <h3>reverse()</h3>
+      <p>Reverse the array content and mutate the array.</p>
+      <h5>Syntax</h5>
+      <pre><code language="javascript">Array.reverse();</code></pre>
+      <h3>sort()</h3>
+      <p>Sort the array content and mutate the array.</p>
+      <h5>Syntax</h5>
+      <pre><code language="javascript">Array.sort(); //Without compareFn
+Array.sort((a, b) => a - b); //With compareFn ascending order
+Array.sort((a, b) => b - a); //With compareFn descending order
+      </code></pre>
+      <h3>copyWithin()</h3>
+      <p>Copy content of array with in the array and mutate the array.</p>
+      <h5>Syntax</h5>
+      <pre><code language="javascript">Array.copyWithin(target, start, end); 
+/*
+target: At which index content will get pasted.
+start: Pick the start index of elements from the array
+end: Pick the last index range of the elements from the array
+*/
+      </code></pre>
+    </div>
+    <div style="height: 100px"></div>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
